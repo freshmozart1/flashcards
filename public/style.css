@@ -232,9 +232,294 @@ body {
 
 .hidden { display: none !important; }
 
+/* ── Recorder widget (fixed, bottom-right) ───────────────── */
+
+.recorder-widget {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  z-index: 50;
+}
+
+.live-preview {
+  width: 112px;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  object-fit: cover;
+  background: #000;
+  border: 2px solid var(--btn-wrong);
+  box-shadow: 0 2px 14px rgba(229, 62, 62, 0.22);
+  opacity: 0;
+  transform: translateY(6px) scale(0.94);
+  pointer-events: none;
+  transition:
+    opacity  0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.live-preview.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.recorder-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 4px 20px rgba(30, 41, 59, 0.13),
+    0 1px  4px rgba(30, 41, 59, 0.07);
+}
+
+.recorder-action-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  line-height: 1;
+  text-decoration: none;
+  font-family: inherit;
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.recorder-action-btn--link,
+.recorder-action-btn--play {
+  background: rgba(100, 116, 139, 0.10);
+  color: var(--ink-2);
+}
+
+.recorder-action-btn--play {
+  color: var(--btn-correct);
+}
+
+.recorder-action-btn--link:hover,
+.recorder-action-btn--play:hover {
+  background: rgba(100, 116, 139, 0.18);
+}
+
+.recorder-action-btn--record {
+  background: var(--ink-1);
+  color: #fff;
+}
+
+.recorder-action-btn--record:hover {
+  transform: scale(1.07);
+}
+
+.recorder-action-btn--record.is-recording {
+  background: var(--btn-wrong);
+  box-shadow: 0 0 0 4px rgba(229, 62, 62, 0.28);
+}
+
+.recorder-action-btn:active {
+  transform: scale(0.92);
+}
+
+.recorder-action-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.record-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.recorder-action-btn--record.is-recording .record-dot {
+  animation: record-blink 1.4s ease-in-out infinite;
+}
+
+@keyframes record-blink {
+  0%, 100% { opacity: 1;    transform: scale(1); }
+  50%       { opacity: 0.35; transform: scale(0.65); }
+}
+
+.record-error {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--btn-wrong);
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 8px;
+  padding: 0.3rem 0.6rem;
+  max-width: 180px;
+  text-align: right;
+}
+
+/* ── Playback overlay ────────────────────────────────────── */
+
+.video-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.video-modal {
+  position: relative;
+  width: min(90vw, 640px);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--ink-1);
+  box-shadow: var(--card-shadow);
+}
+
+.video-modal video {
+  display: block;
+  width: 100%;
+}
+
+.btn-close-video {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 0.875rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.btn-close-video:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+/* ── Recordings page ─────────────────────────────────────── */
+
+.recordings-page {
+  align-items: flex-start;
+  padding-top: 2rem;
+}
+
+.page-header {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.page-header .nav-back {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.page-header .nav-back:hover { color: var(--ink-1); }
+
+.page-title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.recording-card {
+  width: 100%;
+  background: var(--card-front-bg);
+  border-radius: var(--radius-card);
+  padding: 1.5rem 1.75rem;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.recording-card-front {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--ink-1);
+}
+
+.recording-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.recording-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.recording-date {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.recording-video {
+  width: 100%;
+  border-radius: 10px;
+  background: #000;
+  display: block;
+}
+
+.no-recordings {
+  font-size: 1rem;
+  color: var(--ink-2);
+  text-align: center;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+/* ── Motion preferences ──────────────────────────────────── */
+
 @media (prefers-reduced-motion: reduce) {
-  .card-inner     { transition: none; }
-  .card-wrapper   { transition: none; }
+  .card-inner   { transition: none; }
+  .card-wrapper { transition: none; }
   .btn-wrong,
-  .btn-correct    { transition: none; }
+  .btn-correct  { transition: none; }
+
+  .recorder-action-btn--record.is-recording .record-dot {
+    animation: none;
+    opacity: 0.6;
+  }
+
+  .live-preview,
+  .live-preview.visible {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
 }

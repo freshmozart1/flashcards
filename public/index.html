@@ -15,6 +15,25 @@
       <button id="restart-btn">Start over</button>
     </div>
   </div>
+
+  <div class="recorder-widget" id="recorder-widget">
+    <video class="live-preview" id="live-preview" autoplay muted playsinline></video>
+    <div class="recorder-actions">
+      <a href="/recordings.html" class="recorder-action-btn recorder-action-btn--link" aria-label="All recordings">☰</a>
+      <button class="recorder-action-btn recorder-action-btn--play hidden" id="btn-play-latest" aria-label="Play latest recording">▶</button>
+      <button class="recorder-action-btn recorder-action-btn--record" id="btn-record" aria-label="Start recording">
+        <span class="record-dot"></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="video-overlay hidden" id="video-overlay" role="dialog" aria-modal="true">
+    <div class="video-modal">
+      <button class="btn-close-video" id="btn-close-video" aria-label="Close">✕</button>
+      <video id="playback-video" controls playsinline></video>
+    </div>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>
