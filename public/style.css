@@ -1,0 +1,235 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --card-width:  320px;
+  --card-height: 480px;
+
+  --bg:             #DDE3EC;
+  --card-front-bg:  #FFFFFF;
+  --card-back-bg:   #F8F9FF;
+  --ink-1:          #1E293B;
+  --ink-2:          #64748B;
+  --card-shadow:
+    0 1px 2px  rgba(30, 41, 59, 0.07),
+    0 6px 20px rgba(30, 41, 59, 0.10),
+    0 24px 56px rgba(30, 41, 59, 0.08);
+  --btn-wrong:   #E53E3E;
+  --btn-correct: #16A34A;
+  --radius-card: 18px;
+}
+
+body {
+  font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: var(--bg);
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.app {
+  width: 100%;
+  max-width: 420px;
+  padding: 3rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* ── Counter ─────────────────────────────────────────────── */
+
+.deck-counter {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  min-height: 1em;
+}
+
+/* ── Stack container ─────────────────────────────────────── */
+
+.stack-container {
+  position: relative;
+  width: var(--card-width);
+  height: var(--card-height);
+}
+
+/* ── Card wrapper (3D context + stack position) ──────────── */
+
+.card-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--card-width);
+  height: var(--card-height);
+  perspective: 1000px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.stack-pos-0 { z-index: 10; transform: translate(0,    0)    rotate(0deg)    scale(1.00); }
+.stack-pos-1 { z-index:  9; transform: translate(3px,  6px)  rotate(1.5deg)  scale(0.98); }
+.stack-pos-2 { z-index:  8; transform: translate(-4px, 10px) rotate(-1.2deg) scale(0.96); }
+.stack-pos-3 { z-index:  7; transform: translate(6px,  14px) rotate(2.0deg)  scale(0.94); }
+.stack-pos-4 { z-index:  6; transform: translate(-2px, 16px) rotate(-0.8deg) scale(0.92); }
+
+/* ── Card inner (the flipping element) ───────────────────── */
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+/* ── Card faces ──────────────────────────────────────────── */
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--radius-card);
+  box-shadow: var(--card-shadow);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 2rem 1.75rem;
+}
+
+.card-front {
+  background: var(--card-front-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-back {
+  background: var(--card-back-bg);
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  overflow-y: hidden; /* outer face doesn't scroll — inner answer text does */
+}
+
+/* ── Question text ───────────────────────────────────────── */
+
+.question-text {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.025em;
+  color: var(--ink-1);
+  text-align: center;
+}
+
+/* ── Answer text ─────────────────────────────────────────── */
+
+.answer-scroll {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  min-height: 0; /* allow flexbox shrink */
+}
+
+.answer-text {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  color: var(--ink-1);
+}
+
+/* ── Action buttons ──────────────────────────────────────── */
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-shrink: 0;
+  padding-top: 0.25rem;
+}
+
+.btn-wrong,
+.btn-correct {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-wrong  { background: var(--btn-wrong); }
+.btn-correct{ background: var(--btn-correct); }
+
+.btn-wrong:active,
+.btn-correct:active {
+  transform: scale(0.92);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Empty state ─────────────────────────────────────────── */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.empty-state p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--ink-1);
+}
+
+#restart-btn {
+  background: transparent;
+  border: 1.5px solid var(--ink-2);
+  color: var(--ink-2);
+  border-radius: 999px;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+  font-family: inherit;
+}
+
+#restart-btn:hover {
+  border-color: var(--ink-1);
+  color: var(--ink-1);
+}
+
+/* ── Utilities ───────────────────────────────────────────── */
+
+.hidden { display: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card-inner     { transition: none; }
+  .card-wrapper   { transition: none; }
+  .btn-wrong,
+  .btn-correct    { transition: none; }
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "front": "What is the time complexity of binary search?",
+    "back": "O(log n) — binary search halves the search space on each step, so it takes at most log₂(n) comparisons to find (or confirm the absence of) a target in a sorted array."
+  },
+  {
+    "id": 2,
+    "front": "What does the CSS property `backface-visibility: hidden` do?",
+    "back": "It hides an element when it is rotated more than 90° away from the viewer in 3D space. Essential for card-flip effects: prevents the back face from showing through the front during a rotateY animation."
+  },
+  {
+    "id": 3,
+    "front": "What is a closure in JavaScript?",
+    "back": "A closure is a function that retains access to variables from its enclosing scope even after that scope has finished executing. Every function in JavaScript forms a closure over the variables in scope at the time it is defined."
+  },
+  {
+    "id": 4,
+    "front": "What is the difference between `null` and `undefined` in JavaScript?",
+    "back": "`undefined` means a variable has been declared but no value has been assigned. `null` is an explicit assignment representing 'no value'. Both are falsy; `typeof null` is 'object' (a historical bug), while `typeof undefined` is 'undefined'."
+  },
+  {
+    "id": 5,
+    "front": "What is the CSS `transform-style: preserve-3d` property used for?",
+    "back": "It tells the browser that children of an element should be positioned in 3D space rather than being flattened into the plane of their parent. Required on the container element when using 3D transforms on its children."
+  },
+  {
+    "id": 6,
+    "front": "Explain the Event Loop in Node.js.",
+    "back": "Node.js runs JavaScript on a single thread. The Event Loop allows it to handle non-blocking I/O: callbacks from completed I/O operations are queued and processed in phases (timers → I/O callbacks → idle → poll → check → close). This enables high concurrency without threads."
+  },
+  {
+    "id": 7,
+    "front": "What is the difference between `==` and `===` in JavaScript?",
+    "back": "`==` performs type coercion before comparing ('1' == 1 is true). `===` checks both value and type without coercion ('1' === 1 is false). Prefer `===` to avoid subtle bugs from implicit type conversion."
+  },
+  {
+    "id": 8,
+    "front": "What does HTTP status code 304 mean?",
+    "back": "Not Modified — the resource has not changed since the version specified in the request's conditional headers (e.g. `If-None-Match` or `If-Modified-Since`). The client can use its cached copy. No body is sent."
+  }
+]
