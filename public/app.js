@@ -141,6 +141,13 @@ async function loadDeck() {
 function initRecorder() {
   const btnRecord = document.getElementById('btn-record');
 
+  if (!window.isSecureContext || !navigator.mediaDevices?.getUserMedia) {
+    btnRecord.disabled = true;
+    btnRecord.title = 'Camera requires HTTPS';
+    showRecordError('Camera unavailable — use the https:// URL.');
+    return;
+  }
+
   btnRecord.addEventListener('click', async () => {
     if (isRecording) {
       await stopRecording();
@@ -174,8 +181,16 @@ function closePlayback() {
 async function startRecording() {
   try {
     mediaStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-  } catch {
-    showRecordError('Camera access denied.');
+  } catch (err) {
+    if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+      showRecordError('Camera blocked — allow it in browser/system settings.');
+    } else if (err.name === 'NotFoundError' || err.name === 'DevicesNotFoundError') {
+      showRecordError('No camera found on this device.');
+    } else if (err.name === 'NotReadableError' || err.name === 'TrackStartError') {
+      showRecordError('Camera is in use by another app.');
+    } else {
+      showRecordError(`Camera error: ${err.message}`);
+    }
     return;
   }
 

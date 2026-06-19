@@ -1,10 +1,14 @@
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
+const https  = require('https');
+const fs     = require('fs');
+const path   = require('path');
+const { execSync } = require('child_process');
 
-const PUBLIC_DIR = path.join(__dirname, 'public');
+const PUBLIC_DIR     = path.join(__dirname, 'public');
 const RECORDINGS_DIR = path.join(__dirname, 'recordings');
-const PORT = process.env.PORT ?? 3000;
+const CERTS_DIR      = path.join(__dirname, 'certs');
+const CERT_FILE      = path.join(CERTS_DIR, 'cert.pem');
+const KEY_FILE       = path.join(CERTS_DIR, 'key.pem');
+const PORT           = process.env.PORT ?? 3000;
 
 fs.mkdirSync(RECORDINGS_DIR, { recursive: true });
 
@@ -19,6 +23,22 @@ const MIME = {
   '.webm': 'video/webm',
   '.mp4':  'video/mp4',
 };
+
+function ensureCert() {
+  fs.mkdirSync(CERTS_DIR, { recursive: true });
+  if (fs.existsSync(CERT_FILE) && fs.existsSync(KEY_FILE)) return;
+  try {
+    execSync(
+      `openssl req -x509 -newkey rsa:2048 -nodes` +
+      ` -keyout "${KEY_FILE}" -out "${CERT_FILE}"` +
+      ` -days 3650 -subj "/CN=localhost"`,
+      { stdio: 'pipe' }
+    );
+  } catch {
+    console.error('ERROR: openssl not found. Cannot generate TLS certificate.');
+    process.exit(1);
+  }
+}
 
 function sendJson(res, status, body) {
   const payload = JSON.stringify(body);
@@ -138,8 +158,15 @@ function handleGetRecordingFile(req, res, filename) {
   });
 }
 
-http.createServer((req, res) => {
-  const url = new URL(req.url, 'http://localhost');
+ensureCert();
+
+const sslOptions = {
+  key:  fs.readFileSync(KEY_FILE),
+  cert: fs.readFileSync(CERT_FILE),
+};
+
+https.createServer(sslOptions, (req, res) => {
+  const url = new URL(req.url, 'https://localhost');
   const pathname = url.pathname;
   const method = req.method;
 
@@ -184,5 +211,6 @@ http.createServer((req, res) => {
     res.end(data);
   });
 }).listen(PORT, () => {
-  console.log(`Flashcards running at http://localhost:${PORT}`);
+  console.log(`Flashcards running at https://localhost:${PORT}`);
+  console.log(`  → Accept the self-signed cert warning in your browser once.`);
 });
