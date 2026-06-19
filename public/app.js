@@ -55,7 +55,7 @@ function createCard(card, stackIndex) {
   back.className = 'card-face card-back';
   back.innerHTML = `
     <div class="answer-scroll">
-      <p class="answer-text">${escapeHtml(card.back)}</p>
+      <ul class="answer-list">${card.back.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
     </div>
     <div class="action-buttons">
       <button class="btn-wrong"   data-action="wrong"   data-id="${card.id}" aria-label="Wrong">✘</button>
