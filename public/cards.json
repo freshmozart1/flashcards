@@ -27,6 +27,9 @@
     "front": "Wie gehen Sie mit Herausforderungen oder Problemen um, die während der Softwareentwicklung auftreten können?",
     "back": [
       "Problem klar definieren und in kleinere Schritte zerlegen",
+      "Jeder Schritt muss ein Ziel haben und eine konkrete Aktion erfordern",
+      "Priorisieren: Welche Schritte bringen mich am schnellsten zum Ziel?",
+      "Ziele müssen spezifisch, messbar, erreichbar, relevant und zeitgebunden sein (SMART)",
       "Online recherchieren, Dokumentationen lesen, Entwickler-Communities fragen",
       "Code-Fehler: Debugging-Tools und Testfälle schreiben um das Problem einzugrenzen",
       "Größere Herausforderungen: mit anderen Entwicklern diskutieren und Feedback einholen",
@@ -89,6 +92,15 @@
       "Wissen in Full-Stack-Entwicklung und KI-Integration vertiefen",
       "Auf professionelles Niveau heben",
       "Langfristig: Spezialisierung auf die Verbindung von Softwareentwicklung und KI"
+    ]
+  },
+  {
+    "id": 10,
+    "front": "Warum haben Sie sich bei uns beworben?",
+    "back": [
+      "Azubi Projekt: DML Truck Rental",
+      "Techstack: TypeScript",
+      "Techstack: Vue.js (gesehen auf LinkedIn-Profil)"
     ]
   }
 ]
