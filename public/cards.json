@@ -8,7 +8,7 @@
       "gebürtiger Hamburger",
       "Quereinsteiger mit viel Leidenschaft für das Experimentieren mit neuen Technlogien",
       "Autodidakt: Habe mir in den letzten Jahren ein solides praktisches Fundament über Frameworks, Datenbanken und KI-Integration erarbeitet",
-      "KI-Affinität zeigt sich durch mein neuestes Projekt: Entwicklung eines Trading-Bots, der auf Basis von KI-gestützten Marktanalysen automatisierte Handelsentscheidungen trifft und dabei kontinuierlich seine Strategien anpasst, um die Performance zu optimieren",
+      "KI-Affinität zeigt sich in eigenen Projekten: ein Trading-Bot mit KI-gestützter Marktanalyse für automatisierte Handelsentscheidungen und ein Agent, der Vue.js SFCs automatisch von der Options- in die Composition-API umwandelt",
       "Entwicklung einer RAG-Pipeline, die es ermöglicht, eigene Anschreiben in Embeddings umzuwandeln und bei neuen Bewerbungen ähnliche Anschreiben per Kosinusähnlichkeit auszuwählen, um individuell zugeschnittene Anschreiben im persönlichen Stil zu generieren"
     ]
   },
@@ -16,12 +16,10 @@
     "id": 2,
     "front": "Ich kann",
     "back": [
-      "Euch Erfahrung im Bereich Vue.js anbieten, da ich in den letzten Monaten intensiv mit diesem Framework gearbeitet habe",
-      "KI-Affinität: Entwicklung eines Agents, der automatisch Vue.js SFCs von der Options-API in die Composition-API umwandelt, um den Code moderner und wartbarer zu gestalten",
+      "auf mehrere Monate intensive Praxiserfahrung mit Vue.js zurückblicken",
       "dank KI sehr schnell Prototypen erstellen und Ideen validieren, was die Entwicklungszeit erheblich verkürzt",
-      "euch Erfahrung im Bereich CI/CD bieten, da ich bereits mit GitHub Actions und Jenkins gearbeitet habe, um automatisierte Build- und Deployment-Pipelines zu implementieren",
-      "euch Erfahrung im Bereich Testing bieten, da ich bereits Unit-Tests mit Vitest und End-to-End-Tests mit Playwright implementiert habe, um die Qualität und Stabilität der Software sicherzustellen",
-      "euch Erfahrung im Bereich Datenbanken bieten, da ich bereits mit MongoDB und PostgreSQL gearbeitet habe, um Daten effizient zu speichern und abzurufen",
+      "Software zuverlässig liefern: Mit GitHub Actions und Jenkins automatisiere ich Build- und Deployment-Pipelines, mit Vitest und Playwright sichere ich die Qualität durch Unit- und End-to-End-Tests",
+      "sicher mit Datenbanken wie MongoDB und PostgreSQL umgehen, um Daten effizient zu speichern und abzurufen",
       "GitFlow"
     ]
   },
