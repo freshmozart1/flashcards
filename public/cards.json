@@ -1,106 +1,37 @@
 [
   {
     "id": 1,
-    "front": "Welche Programmiersprachen beherrschen Sie bereits und wie haben Sie diese gelernt?",
+    "front": "Ich bin",
     "back": [
-      "TypeScript und JavaScript (Node.js + Browser) — komplett selbst beigebracht durch eigene Projekte",
-      "jobMatchServer: Express-Backend das Stellenanzeigen sammelt und analysiert (async, Puppeteer, API-Design)",
-      "Frontend: Vue und Next.js",
-      "receiptTracker: Kassenbons per Kamera scannen, OpenAI API auslesen, MongoDB als Datenbank",
-      "Wichtig: echte Projekte mit Nutzen, nicht nur Tutorials nachbauen"
+      "Ole Köster",
+      "31 Jahre alt",
+      "gebürtiger Hamburger",
+      "Quereinsteiger mit viel Leidenschaft für das Experimentieren mit neuen Technlogien",
+      "Autodidakt: Habe mir in den letzten Jahren ein solides praktisches Fundament über Frameworks, Datenbanken und KI-Integration erarbeitet",
+      "KI-Affinität zeigt sich durch mein neuestes Projekt: Entwicklung eines Trading-Bots, der auf Basis von KI-gestützten Marktanalysen automatisierte Handelsentscheidungen trifft und dabei kontinuierlich seine Strategien anpasst, um die Performance zu optimieren",
+      "Entwicklung einer RAG-Pipeline, die es ermöglicht, eigene Anschreiben in Embeddings umzuwandeln und bei neuen Bewerbungen ähnliche Anschreiben per Kosinusähnlichkeit auszuwählen, um individuell zugeschnittene Anschreiben im persönlichen Stil zu generieren"
     ]
   },
   {
     "id": 2,
-    "front": "Was sind Ihre Stärken und Schwächen im Hinblick auf die Softwareentwicklung?",
+    "front": "Ich kann",
     "back": [
-      "Stärke: Selbstständigkeit — einlesen, ausprobieren, dokumentieren",
-      "Dadurch komplexe Themen gemeistert: async Programmierung, API-Design",
-      "Stärke: Codequalität — ESLint, Prettier, automatisierte Tests konsequent eingesetzt",
-      "jobMatch: Unit-Tests mit Vitest und End-to-End-Tests mit Playwright",
-      "Schwäche: manchmal zu viel Zeit für die perfekte Lösung",
-      "Arbeite daran: pragmatischer vorgehen und schneller Entscheidungen treffen"
+      "Euch Erfahrung im Bereich Vue.js anbieten, da ich in den letzten Monaten intensiv mit diesem Framework gearbeitet habe",
+      "KI-Affinität: Entwicklung eines Agents, der automatisch Vue.js SFCs von der Options-API in die Composition-API umwandelt, um den Code moderner und wartbarer zu gestalten",
+      "dank KI sehr schnell Prototypen erstellen und Ideen validieren, was die Entwicklungszeit erheblich verkürzt",
+      "euch Erfahrung im Bereich CI/CD bieten, da ich bereits mit GitHub Actions und Jenkins gearbeitet habe, um automatisierte Build- und Deployment-Pipelines zu implementieren",
+      "euch Erfahrung im Bereich Testing bieten, da ich bereits Unit-Tests mit Vitest und End-to-End-Tests mit Playwright implementiert habe, um die Qualität und Stabilität der Software sicherzustellen",
+      "euch Erfahrung im Bereich Datenbanken bieten, da ich bereits mit MongoDB und PostgreSQL gearbeitet habe, um Daten effizient zu speichern und abzurufen",
+      "GitFlow"
     ]
   },
   {
     "id": 3,
-    "front": "Wie gehen Sie mit Herausforderungen oder Problemen um, die während der Softwareentwicklung auftreten können?",
+    "front": "Ich möchte",
     "back": [
-      "Problem klar definieren und in kleinere Schritte zerlegen",
-      "Jeder Schritt muss ein Ziel haben und eine konkrete Aktion erfordern",
-      "Priorisieren: Welche Schritte bringen mich am schnellsten zum Ziel?",
-      "Ziele müssen spezifisch, messbar, erreichbar, relevant und zeitgebunden sein (SMART)",
-      "Online recherchieren, Dokumentationen lesen, Entwickler-Communities fragen",
-      "Code-Fehler: Debugging-Tools und Testfälle schreiben um das Problem einzugrenzen",
-      "Größere Herausforderungen: mit anderen Entwicklern diskutieren und Feedback einholen",
-      "Systematisch vorgehen, nicht in Panik geraten, aus Fehlern lernen"
-    ]
-  },
-  {
-    "id": 4,
-    "front": "Welche technischen Neuerungen verfolgen Sie, und wie halten Sie sich auf dem Laufenden?",
-    "back": [
-      "Regelmäßig Blogs, Podcasts und YouTube-Kanäle zu Webentwicklung verfolgen"
-    ]
-  },
-  {
-    "id": 5,
-    "front": "Erzählen Sie von einem Projekt, auf das Sie stolz sind.",
-    "back": [
-      "Node.js-Projekt: erstellt automatisiert vollständige Bewerbungsmappen aus Stellenanzeigen",
-      "RAG-Pipeline: eigene Anschreiben als Referenzkorpus",
-      "Anschreiben werden in Embeddings umgewandelt",
-      "Bei neuer Bewerbung: ähnliche Anschreiben per Kosinusähnlichkeit auswählen",
-      "Ausgewählte Anschreiben dienen der KI als Vorlage für das neue Anschreiben",
-      "Ergebnis: individuell zugeschnitten und trotzdem im persönlichen Stil"
-    ]
-  },
-  {
-    "id": 6,
-    "front": "Wie arbeiten Sie am liebsten im Team, und welche Rolle nehmen Sie dabei ein?",
-    "back": [
-      "Arbeite gerne in kollaborativem Umfeld mit offenem Ideenaustausch",
-      "Bevorzugte Rolle: technische Umsetzung als Entwickler",
-      "Offen für andere Rollen, je nach Projektbedarf",
-      "Wert auf klare und respektvolle Kommunikation"
-    ]
-  },
-  {
-    "id": 7,
-    "front": "Wie gehen Sie mit Feedback um, und wie integrieren Sie es in Ihre Arbeit?",
-    "back": [
-      "Feedback als wertvolle Gelegenheit zur Verbesserung betrachten",
-      "Objektiv betrachten und zugrunde liegende Punkte verstehen",
-      "Nach konkreten Beispielen und Verbesserungsvorschlägen fragen",
-      "Gezielt an angesprochenen Punkten arbeiten und Ansatz anpassen"
-    ]
-  },
-  {
-    "id": 8,
-    "front": "Warum möchten Sie bei uns arbeiten?",
-    "back": [
-      "Solides praktisches Fundament als Autodidakt: Node.js, Frontend-Frameworks, KI-Integration",
-      "Was fehlt: strukturierte Ausbildung im echten Unternehmensumfeld",
-      "Ziel: Teamarbeit, langfristige Projekte, Feedback von erfahrenen Kolleginnen und Kollegen",
-      "Möchte Selbststudium zu einer fundierten, anerkannten Qualifikation machen"
-    ]
-  },
-  {
-    "id": 9,
-    "front": "Wo sehen Sie sich in 5 Jahren?",
-    "back": [
-      "Wissen in Full-Stack-Entwicklung und KI-Integration vertiefen",
-      "Auf professionelles Niveau heben",
-      "Langfristig: Spezialisierung auf die Verbindung von Softwareentwicklung und KI"
-    ]
-  },
-  {
-    "id": 10,
-    "front": "Warum haben Sie sich bei uns beworben?",
-    "back": [
-      "Azubi Projekt: DML Truck Rental",
-      "Techstack: TypeScript",
-      "Techstack: Vue.js (gesehen auf LinkedIn-Profil)"
+      "Für euch arbeiten, weil ich euer Unternehmensumfeld sehr spannend finde",
+      "mein eigenes Wissen gerne in eurem Team einbringen und gleichzeitig von erfahrenen Kolleginnen und Kollegen lernen",
+      "in einem Unternehmen mit gesellschaftlich relevantem Thema arbeiten. Eure Investition in Batteriespeicher finde ich hervorragend, da sie einen wichtigen Beitrag zur Energiewende leisten und die Abhängigkeit von fossilen Brennstoffen reduzieren."
     ]
   }
 ]
